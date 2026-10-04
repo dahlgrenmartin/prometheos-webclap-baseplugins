@@ -1,0 +1,141 @@
+{
+  "epoch": 1767225600,
+  "upstreams": {
+    "char-wclaps": { "repo": "charCulbert/char-wclaps", "commit": "48ff670469a4af4b42152f8659fbb514a26dcdb1" },
+    "webclap-examples": { "repo": "WebCLAP/examples", "commit": "dfb8220af7ce45bb0ab46baf8a37235f946703b3" }
+  },
+  "packages": [
+    {
+      "file": "MNO.wclap.tar.gz",
+      "title": "MNO",
+      "description": "Monophonic synthesizer",
+      "upstream": "char-wclaps", "path": "MNO.wclap.tar.gz",
+      "sha256": "9b900441c074fc67dde42beb5ac17d1f4d23736e59687084d456ba9d626f2c4e",
+      "source": "https://github.com/charCulbert/mno",
+      "license": "ISC (third-party notices inside)",
+      "plugins": ["com.charlieculbert.mno"]
+    },
+    {
+      "file": "Mote.wclap.tar.gz",
+      "title": "Mote",
+      "description": "Host-synced arpeggiator (note effect)",
+      "upstream": "char-wclaps", "path": "Mote.wclap.tar.gz",
+      "sha256": "2f3b357e55701d11f3b51e7f64941c06cd254af3d74f0a217f18fb7d23778a48",
+      "source": "https://github.com/charCulbert/Mote",
+      "license": "ISC (third-party notices inside)",
+      "plugins": ["com.charlieculbert.mote"]
+    },
+    {
+      "file": "Slide.wclap.tar.gz",
+      "title": "Slide",
+      "description": "Stereo delay",
+      "upstream": "char-wclaps", "path": "Slide.wclap.tar.gz",
+      "sha256": "6b1e6ece748ca4d04428ebf9dad790fd99e0355eee15108e54f565dc2d52bb24",
+      "source": "https://github.com/charCulbert/Slide",
+      "license": "ISC (third-party notices inside)",
+      "plugins": ["com.charlieculbert.slide"]
+    },
+    {
+      "file": "Tapa.wclap.tar.gz",
+      "title": "Tapa",
+      "description": "FM, noise and metallic percussion",
+      "upstream": "char-wclaps", "path": "tapa.wclap.tar.gz",
+      "sha256": "41693341fca1ca0af3e60e48ee076b49172e38accbb3c61fe3de09791506307e",
+      "source": "https://github.com/charCulbert/Tapa",
+      "license": "ISC (third-party notices inside)",
+      "plugins": ["com.charlieculbert.tapa"]
+    },
+    {
+      "file": "ClapSawDemo.wclap.tar.gz",
+      "title": "Clap Saw Demo (ImGui)",
+      "description": "Surge team's CLAP saw synth with an ImGui editor",
+      "upstream": "char-wclaps", "path": "clap-saw-demo-imgui.wclap.tar.gz",
+      "sha256": "7b12179a93fc0a3e1e67e36a8e7110a5768b19c840fd2778b899f9cb4b7b8208",
+      "source": "https://github.com/surge-synthesizer/clap-saw-demo",
+      "license": "MIT (third-party licenses inside)",
+      "plugins": ["org.surge-synth-team.clap-saw-demo"]
+    },
+    {
+      "file": "SignalsmithBasics.wclap.tar.gz",
+      "title": "Signalsmith Basics",
+      "description": "Chorus, Crunch, Frequency Shifter, Limiter, Reverb and Analyser",
+      "upstream": "webclap-examples", "path": "signalsmith-basics/basics.wclap.tar.gz",
+      "sha256": "79fff879aca3aff7042344fff1ae905230a63e7bc30a2faac8cea72b640ff9a2",
+      "source": "https://github.com/Signalsmith-Audio/basics",
+      "license": "MIT",
+      "addLicenses": [
+        { "path": "signalsmith-basics/LICENSE.txt", "sha256": "b81eab3abab58e20eb74c74e70b8f3cbf7160ae3b3f1951b8f5e6692b52d10b5", "as": "LICENSE.txt" }
+      ],
+      "plugins": [
+        "uk.co.signalsmith.basics.chorus", "uk.co.signalsmith.basics.crunch",
+        "uk.co.signalsmith.basics.freq-shifter", "uk.co.signalsmith.basics.limiter",
+        "uk.co.signalsmith.basics.reverb", "uk.co.signalsmith.basics.analyser"
+      ]
+    },
+    {
+      "file": "SignalsmithClapExamples.wclap.tar.gz",
+      "title": "Signalsmith CLAP C++ examples",
+      "description": "Example chorus, note plugin, virtual keyboard and synth",
+      "upstream": "webclap-examples", "path": "signalsmith-clap-cpp/example-plugins.wclap.tar.gz",
+      "sha256": "0d783de56bd311a84c05976b60c04100a4d1f630d37ff15ae7313ec51c8798ac",
+      "source": "https://github.com/geraintluff/signalsmith-clap-cpp",
+      "license": "BSL-1.0",
+      "addLicenses": [
+        { "path": "signalsmith-clap-cpp/LICENSE.txt", "sha256": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566", "as": "LICENSE.txt" }
+      ],
+      "plugins": [
+        "uk.co.signalsmith-audio.plugins.example-audio-plugin", "uk.co.signalsmith-audio.plugins.example-note-plugin",
+        "uk.co.signalsmith-audio.plugins.example-keyboard", "uk.co.signalsmith-audio.plugins.example-synth"
+      ]
+    },
+    {
+      "file": "ClackGain.wclap.tar.gz",
+      "title": "Clack Gain",
+      "description": "Rust (Clack) gain example",
+      "upstream": "webclap-examples", "path": "clack/clack_plugin_gain.wasm",
+      "sha256": "a5a4fb24d5bd3a696e9c51dd683ce4fe0845b20e93703635d0982e9393aac008",
+      "source": "https://github.com/prokopyl/clack",
+      "license": "MIT OR Apache-2.0",
+      "addLicenses": [
+        { "path": "clack/LICENSE-MIT.txt", "sha256": "5561edd4b9921683d98162f4321d0a146b2cf01f2413261d75a3b3878d83e124", "as": "LICENSE-MIT.txt" },
+        { "path": "clack/LICENSE-APACHE.txt", "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30", "as": "LICENSE-APACHE.txt" }
+      ],
+      "plugins": ["org.rust-audio.clack.gain"]
+    },
+    {
+      "file": "ClackPolySynth.wclap.tar.gz",
+      "title": "Clack PolySynth",
+      "description": "Rust (Clack) polyphonic synth example",
+      "upstream": "webclap-examples", "path": "clack/clack_plugin_polysynth.wasm",
+      "sha256": "73bc777b3e481c163b0557012936387e218f6387bceb7ece30026aecd7d62fe1",
+      "source": "https://github.com/prokopyl/clack",
+      "license": "MIT OR Apache-2.0",
+      "addLicenses": [
+        { "path": "clack/LICENSE-MIT.txt", "sha256": "5561edd4b9921683d98162f4321d0a146b2cf01f2413261d75a3b3878d83e124", "as": "LICENSE-MIT.txt" },
+        { "path": "clack/LICENSE-APACHE.txt", "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30", "as": "LICENSE-APACHE.txt" }
+      ],
+      "plugins": ["org.rust-audio.clack.polysynth"]
+    },
+    {
+      "file": "AsClapExample.wclap.tar.gz",
+      "title": "as-clap example",
+      "description": "AssemblyScript gain and sine synth",
+      "upstream": "webclap-examples", "path": "as-clap/example.wclap.wasm",
+      "sha256": "f6dd0cd7901ace23907a39a889fe7f21101b97dbb9625d6216be0465a965c2c1",
+      "source": "https://github.com/WebCLAP/as-clap/tree/main/example",
+      "license": "BSL-1.0",
+      "addLicenses": [
+        { "path": "signalsmith-clap-cpp/LICENSE.txt", "sha256": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566", "as": "LICENSE.txt",
+          "note": "The canonical Boost Software License 1.0 text; WebCLAP/examples' as-clap/README.md states this license and as-clap carries no license file." }
+      ],
+      "plugins": ["com.example.clap.plugins.gain", "com.example.clap.plugins.synth"]
+    }
+  ],
+  "excluded": [
+    {
+      "title": "Pro54",
+      "upstream": "char-wclaps", "path": "Pro54.wclap.tar.gz",
+      "reason": "Its DSP is compiled from Cmajor Software Ltd's Pro54 example patch, licensed GPLv3-or-commercial; the archive is labelled ISC only. Not redistributed until that is resolved."
+    }
+  ]
+}

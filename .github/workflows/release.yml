@@ -1,0 +1,53 @@
+name: Package and release
+on:
+  push:
+    branches: ["**"]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.13"
+      - name: Fetch pinned upstreams and package
+        run: python scripts/package.py --check
+      - name: Verify a clean rebuild is identical
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp dist/SHA256SUMS "$RUNNER_TEMP/first-SHA256SUMS"
+          rm -rf build dist
+          python scripts/package.py --check
+          cmp "$RUNNER_TEMP/first-SHA256SUMS" dist/SHA256SUMS
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: webclap-baseplugins
+          path: dist/
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: package
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: webclap-baseplugins
+          path: dist
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          (cd dist && sha256sum --check SHA256SUMS)
+          gh release create "$GITHUB_REF_NAME" dist/*.wclap.tar.gz dist/SHA256SUMS \
+            --repo "$GITHUB_REPOSITORY" --title "WebCLAP base plugins ${GITHUB_REF_NAME#v}" \
+            --notes "Ten upstream WCLAP archives (19 plugins) for buzz-remote. Install with Machines → Plugins… → Install File…; several archives can be selected at once. Verify downloads with SHA256SUMS. Licenses and sources: see README.md."
