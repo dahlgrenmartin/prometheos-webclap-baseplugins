@@ -117,7 +117,7 @@ def main() -> None:
         (DIST / package["file"]).write_bytes(output)
         sums.append(f"{sha256(output)}  {package['file']}")
         print(f"{package['file']:40} {'repacked' if package.get('addLicenses') else 'verbatim'}  {len(output):>9} bytes")
-    (DIST / "SHA256SUMS").write_text("\n".join(sums) + "\n", encoding="utf-8")
+    (DIST / "SHA256SUMS").write_text("\n".join(sums) + "\n", encoding="utf-8", newline="\n")
     if args.check:
         for line in sums:
             digest, name = line.split("  ")
